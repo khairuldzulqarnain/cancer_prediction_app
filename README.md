@@ -17,30 +17,30 @@ This project employs logistic regression to predict breast cancer based on the W
 - **Normal Nucleoli**: Presence of normal nucleoli (1-10)
 - **Mitoses**: Number of mitoses (1-10)
 
-Model Training
+## Model Training
 The logistic regression model is trained on the Wisconsin Diagnostic Dataset, focusing on data preprocessing and feature engineering to enhance prediction accuracy.
 
-Evaluation Metrics
+## Evaluation Metrics
 Confusion Matrix
 The confusion matrix illustrates model performance by comparing actual versus predicted classifications, offering insights into prediction errors.
 
 ROC Curve
 The ROC curve demonstrates the model's diagnostic ability by plotting true positive rate against false positive rate, with the AUC providing a summary of overall performance.
 
-Visualization
+## Visualization
 User Input Parameters
 Adjust feature sliders in the sidebar to explore different combinations and observe immediate prediction outcomes.
 
-Radar Chart for Feature Comparison
+## Radar Chart for Feature Comparison
 Compare user input features with average benign and malignant features using radar charts, aiding in understanding feature impacts on predictions.
 
-Conclusion
+## Conclusion
 This project showcases logistic regression’s application in breast cancer prediction, leveraging interactive visualizations and evaluation metrics to enhance understanding and decision-making.
 
-License
+## License
 This project is licensed under the MIT License. See LICENSE for details.
 
-Acknowledgements
+## Acknowledgements
 UCI Machine Learning Repository for providing the dataset.
 Streamlit community for their excellent framework.
 Contributors to Python libraries used in this project: Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn, and Plotly.
