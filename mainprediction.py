@@ -43,7 +43,7 @@ model = LogisticRegression(max_iter=10000)
 model.fit(X_train, y_train)
 
 # Streamlit app
-st.title('Breast Cancer Detection using Logistic Regression 🎗️')
+st.title('Breast Cancer Detection Apps 🎗️')
 
 # Project Description
 st.markdown("""
