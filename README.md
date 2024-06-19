@@ -17,14 +17,7 @@ This project employs logistic regression to predict breast cancer based on the W
 - **Normal Nucleoli**: Presence of normal nucleoli (1-10)
 - **Mitoses**: Number of mitoses (1-10)
 
-## Installation
 
-To run the project, install the required dependencies using:
-
-```bash
-pip install -r requirements.txt
-Usage
-Launch the Streamlit app with:
 
 Model Training
 The logistic regression model is trained on the Wisconsin Diagnostic Dataset, following these steps:
