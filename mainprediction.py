@@ -140,38 +140,68 @@ st.pyplot(fig_roc)
 # Visualization: Radar Chart for Feature Comparison
 st.subheader('Radar Chart: Feature Comparison 📊')
 
+# Define function to generate radar chart
+def radar_chart(features, title):
+    fig = go.Figure()
+
+    fig.add_trace(go.Scatterpolar(
+          r=features,
+          theta=features.index,
+          fill='toself',
+          name=title
+    ))
+
+    fig.update_layout(
+      polar=dict(
+        radialaxis=dict(
+          visible=True,
+          range=[0, 10]
+        )),
+      showlegend=True
+    )
+
+    return fig
+
 # Get mean values for benign and malignant classes
-mean_benign = X[y == 'Benign'].mean().values
-mean_malignant = X[y == 'Malignant'].mean().values
-features = X.columns
+mean_benign = X[y == 'Benign'].mean()
+mean_malignant = X[y == 'Malignant'].mean()
 
-# Plotly radar chart
-fig_radar = go.Figure()
+# Plot radar charts based on user input and mean values
+input_features = input_df.iloc[0]
+fig_radar_input = radar_chart(input_features, 'User Input')
+fig_radar_benign = radar_chart(mean_benign, 'Benign')
+fig_radar_malignant = radar_chart(mean_malignant, 'Malignant')
 
-fig_radar.add_trace(go.Scatterpolar(
-      r=mean_benign,
-      theta=features,
-      fill='toself',
-      name='Benign'
+# Display radar charts using st.plotly_chart()
+st.plotly_chart(fig_radar_input)
+
+# Add traces for benign and malignant
+fig_radar_input.add_trace(go.Scatterpolar(
+    r=mean_benign,
+    theta=mean_benign.index,
+    fill='toself',
+    name='Mean Benign'
 ))
 
-fig_radar.add_trace(go.Scatterpolar(
-      r=mean_malignant,
-      theta=features,
-      fill='toself',
-      name='Malignant'
+fig_radar_input.add_trace(go.Scatterpolar(
+    r=mean_malignant,
+    theta=mean_malignant.index,
+    fill='toself',
+    name='Mean Malignant'
 ))
 
-fig_radar.update_layout(
-  polar=dict(
-    radialaxis=dict(
-      visible=True,
-      range=[0, 10]
-    )),
-  showlegend=True
+# Update layout to show legend and adjust axes
+fig_radar_input.update_layout(
+    polar=dict(
+        radialaxis=dict(
+            visible=True,
+            range=[0, 10]
+        )),
+    showlegend=True,
+    title='Radar Chart: Feature Comparison'
 )
 
-# Display radar chart using st.plotly_chart()
-st.plotly_chart(fig_radar)
+# Display updated radar chart
+st.plotly_chart(fig_radar_input)
 
 # Optionally, you can also display other visualizations like feature importance, etc., based on your model analysis.
